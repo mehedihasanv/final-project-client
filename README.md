@@ -6,7 +6,7 @@ A modern, user-friendly contest management platform that allows users to create,
 
  ##Live Site URL
 
-https://your-live-site-url.com
+
 
 
  ##Features
@@ -39,7 +39,7 @@ Dark/Light Theme Toggle: Theme preference saved in localStorage and persists aft
 
 Pagination: Implemented on tables with 10 items per page.
 
-Extra Pages: Includes additional meaningful routes/pages beyond core requirements.
+Extra Pages: Includes additional meaningful pages beyond core requirements.Pages named as Testimonials & HelpZone.
 
 Sweet Alerts: Used for login, signup, and all CRUD actions.
 
