@@ -21,9 +21,7 @@ const Sidebar = () => {
   return (
     <div className="drawer-side">
       <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-
       <ul className="menu p-4 w-72 min-h-full bg-base-200 text-base-content">
-
         <h2 className="text-2xl font-bold mb-6">Dashboard</h2>
 
         {/* ✅ User Menu */}
