@@ -1,4 +1,3 @@
-// src/components/home/WinnerAdvertise.jsx
 import { useQuery } from "@tanstack/react-query";
 import api from "../../services/apiClient";
 

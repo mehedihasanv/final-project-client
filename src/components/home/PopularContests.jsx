@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-
 import ContestCard from "../contests/ContestCard";
 import { Link } from "react-router-dom";
 import api from "../../services/apiClient";
@@ -9,7 +8,6 @@ const PopularContests = () => {
     queryKey: ["popular-contests"],
     queryFn: async () => {
       const res = await api.get("/contests/popular");
-      
       return res.data;
     },
   });
