@@ -1,6 +1,3 @@
-
-
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -27,10 +24,10 @@ const Banner = () => {
         backgroundPosition: "center",
       }}
     >
-      {/* Overlay */}
+      
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
 
-      {/* Content */}
+      
       <div className="hero-content text-center text-neutral-content relative z-10">
         <div className="max-w-2xl">
           <h1 className="mb-5 text-5xl font-extrabold drop-shadow-lg">
