@@ -12,13 +12,10 @@ const ContestCard = ({ contest }) => {
 
       <div className="card-body">
         <h2 className="card-title">{contest.name}</h2>
-
         <p>{contest.description.slice(0, 80)}...</p>
-
         <p className="font-semibold">
           Participants: {contest.participantsCount}
         </p>
-
         <div className="card-actions justify-end">
           <Link
             to={user ? `/contest/${contest._id}` : "/login"}
