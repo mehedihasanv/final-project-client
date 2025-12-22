@@ -1,6 +1,7 @@
 ##Website Name
 
 ContestHub
+
 A modern, user-friendly contest management platform that allows users to create, discover, participate in, and manage creative contests.
 
 
@@ -42,6 +43,8 @@ Pagination: Implemented on tables with 10 items per page.
 Extra Pages: Includes additional meaningful pages beyond core requirements.Pages named as Testimonials & HelpZone.
 
 Sweet Alerts: Used for login, signup, and all CRUD actions.
+
+pagination: ManageUsers & ManageContest have pagination
 
 TanStack Query: All data fetching handled with TanStack Query.
 

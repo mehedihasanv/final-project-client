@@ -8,7 +8,10 @@ const WinnerAdvertise = () => {
       const res = await api.get("/contests", {
         params: { status: "confirmed" },
       });
+      console.log(res.data.contests);
+      
       return res.data.contests.filter(c => c.winner);
+      
     },
   });
 
@@ -40,6 +43,10 @@ const WinnerAdvertise = () => {
             <div className="card-body text-center">
               <h3 className="text-xl font-semibold mt-2">{contest.winner.name}</h3>
               <p className="text-sm text-gray-500">{contest.winner.email}</p>
+             <p className="text-sm text-gray-500">
+  Prize Money: ${contest.prize}
+</p>
+
               <p className="mt-2 font-bold text-blue-600">
                 Winner of {contest.name}
               </p>
