@@ -2,9 +2,7 @@ const ExtraSection = () => {
   return (
     <div className="max-w-7xl mx-auto my-20 px-4">
       <h2 className="text-3xl font-bold mb-6">Why Join ContestHub?</h2>
-
       <div className="grid md:grid-cols-3 gap-6">
-
         <div className="p-6 bg-base-200 rounded-lg shadow">
           <h3 className="font-bold text-xl mb-2">Boost Your Skills</h3>
           <p>
