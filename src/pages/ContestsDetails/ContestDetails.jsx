@@ -33,14 +33,7 @@ const ContestDetails = () => {
 });
 
 
-//   const { data: participated = [], error: partError } = useQuery({
-//     queryKey: ["participated", user?.email],
-//     enabled: !!user?.email,
-//     queryFn: async () => {
-//       const res = await api.get(`/participated/${user.email}`);
-//       return res.data;
-//     },
-//   });
+
 
   const isRegistered = participated.some((p) => p._id === id || p._id === contest._id);
 
@@ -82,10 +75,7 @@ const ContestDetails = () => {
   refetchParticipated();  // participated list update
 }
 
-    //   if (res.data.success) {
-    //     Swal.fire({ icon: "success", title: "Payment Successful", timer: 1500, showConfirmButton: false });
-    //     refetch();
-    //   }
+   
     } catch {
       Swal.fire({ icon: "error", title: "Payment Failed" });
     }

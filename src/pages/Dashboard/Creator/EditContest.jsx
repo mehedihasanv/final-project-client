@@ -15,7 +15,7 @@ const EditContest = () => {
     },
   });
 
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit } = useForm();
 
   if (isLoading) return <div className="text-center py-10">Loading...</div>;
 
