@@ -1,16 +1,61 @@
-# React + Vite
+##Website Name
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ContestHub
+A modern, user-friendly contest management platform that allows users to create, discover, participate in, and manage creative contests.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ ##Live Site URL
 
-## React Compiler
+https://your-live-site-url.com
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+ ##Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Responsive Design: Fully responsive across mobile, tablet, and desktop, including dashboards.
+
+Role Management: Three roles supported – Admin, Contest Creator, and Normal User.
+
+Secure Authentication: Firebase authentication with Email/Password and Google Sign-in.
+
+Payment Integration: Users pay entry fees to participate in contests.
+
+Contest Creation & Management: Creators can add contest,also can edit delete when the contest in pending
+
+Admin Controls: Admins can approve/reject contests and manage user roles.
+
+Contest Participation: Users can register, pay, and submit tasks for contests.
+
+Winner Declaration: Creators declare winners after deadlines; winners are showcased.
+
+User Dashboard: Includes participated contests, winning contests, and profile with win percentage chart.
+
+Creator Dashboard: Add contests, manage created contests, view submissions, and declare winners.
+
+Admin Dashboard: Manage users and contests with confirm, reject, and delete actions.
+
+Leaderboard Page: Dynamic ranking of users based on number of contest wins.
+
+Dark/Light Theme Toggle: Theme preference saved in localStorage and persists after refresh.
+
+Pagination: Implemented on tables with 10 items per page.
+
+Extra Pages: Includes additional meaningful routes/pages beyond core requirements.
+
+Sweet Alerts: Used for login, signup, and all CRUD actions.
+
+TanStack Query: All data fetching handled with TanStack Query.
+
+JWT Secure APIs: Private routes and sensitive APIs secured with JWT.
+
+🛠 Tech Stack
+Frontend: React, React Router, React Hook Form, TanStack Query, DaisyUI/TailwindCSS
+
+Backend: Node.js, Express.js, MongoDB
+
+Authentication: Firebase Auth
+
+Deployment: Client on Netlify, Server on Vercel
+
+🔑 Environment Variables
+Secrets (Firebase, MongoDB, API URL) are hidden using environment variables.
+
