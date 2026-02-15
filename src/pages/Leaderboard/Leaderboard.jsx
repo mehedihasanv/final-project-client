@@ -1,4 +1,4 @@
-// src/pages/Leaderboard/Leaderboard.jsx
+
 import { useQuery } from "@tanstack/react-query";
 import api from "../../services/apiClient";
 

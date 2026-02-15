@@ -1,4 +1,3 @@
-// src/pages/Dashboard/Admin/ManageUsers.jsx
 import { useQuery } from "@tanstack/react-query";
 import api from "../../../services/apiClient";
 import Swal from "sweetalert2";

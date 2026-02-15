@@ -1,55 +1,63 @@
-const ExtraPageTwo = () => {
-  const testimonials = [
-    {
-      name: "Sarah Ahmed",
-      role: "Graphic Designer",
-      image: "https://plus.unsplash.com/premium_photo-1683133405779-081b5e4311e1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8aGlqYWJpJTIwZ2lybHxlbnwwfHwwfHx8MA%3D%3D",
-      feedback:
-        "ContestHub gave me the chance to showcase my creativity. Winning the design contest boosted my confidence and career opportunities!",
-    },
-    {
-      name: "James Lee",
-      role: "Content Writer",
-      image: "https://images.unsplash.com/photo-1589234217365-08d3e0e5cf42?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHBob3Rvc2hvcHxlbnwwfHwwfHx8MA%3D%3D",
-      feedback:
-        "I participated in an article writing contest and not only won but also connected with amazing people. Truly inspiring!",
-    },
-    {
-      name: "Maria Khan",
-      role: "Entrepreneur",
-      image: "https://images.unsplash.com/photo-1703563743084-aecf82c0d0ee?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fGhpamFiaSUyMGdpcmx8ZW58MHx8MHx8fDA%3D",
-      feedback:
-        "Launching my own contest was so easy. The platform is user‑friendly and helped me find innovative business ideas.",
-    },
-  ];
+import React from "react";
 
+const testimonials = [
+  {
+    id: 1,
+    name: "Ayesha Rahman",
+    photo: "https://i.pravatar.cc/150?img=32",
+    feedback:
+      "This platform gave me the opportunity to showcase my creativity. Winning was an unforgettable experience!",
+    designation: "Graphic Designer",
+  },
+  {
+    id: 2,
+    name: "Tanvir Hasan",
+    photo: "https://i.pravatar.cc/150?img=12",
+    feedback:
+      "Participating in the contest taught me so much. This website truly inspired me to keep learning and growing.",
+    designation: "Web Developer",
+  },
+  {
+    id: 3,
+    name: "Nusrat Jahan",
+    photo: "https://i.pravatar.cc/150?img=45",
+    feedback:
+      "Joining here boosted my confidence. It motivated me to aim higher and dream bigger for the future.",
+    designation: "Content Creator",
+  },
+];
+
+const Testimonial = () => {
   return (
-    <section className="bg-gray-50 py-12">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-10">
-          Success Stories from Our Community
-        </h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((t, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-lg p-6 text-center hover:scale-105 transition-transform"
-            >
+    <div className="my-16 max-w-7xl mx-auto px-4">
+      <h2 className="text-3xl font-bold mb-8 text-center">Testimonials</h2>
+      <p className="mt-4 italic text-center">
+        "Your voice matters — every story inspires others!"
+      </p>
+
+      <div className="grid md:grid-cols-3 gap-6 mt-8">
+        {testimonials.map((t) => (
+          <div
+            key={t.id}
+            className="bg-base-100 shadow-md rounded-lg p-6 text-center"
+          >
+            <figure>
               <img
-                src={t.image}
+                src={t.photo}
                 alt={t.name}
-                className="w-20 h-20 rounded-full mx-auto mb-4 object-cover"
+                className="h-24 w-24 mx-auto object-cover rounded-full border-2 border-blue-500"
               />
+            </figure>
+            <div className="mt-4">
               <h3 className="text-xl font-semibold">{t.name}</h3>
-              <p className="text-sm text-gray-500 mb-3">{t.role}</p>
-              <p className="text-gray-700 italic">“{t.feedback}”</p>
+              <p className="text-sm text-gray-500">{t.designation}</p>
+              <p className="mt-3 text-gray-700 italic">"{t.feedback}"</p>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 };
 
-export default ExtraPageTwo;
-
+export default Testimonial;

@@ -37,7 +37,7 @@ const WinnerAdvertise = () => {
               <img
                 src={contest.winner.photo}
                 alt={contest.winner.name}
-                className="h-25 w-25 mx-auto  object-cover rounded-full"
+                className="h-25 w-25 mx-auto  object-cover rounded-full border-2 border-blue-500"
               />
             </figure>
             <div className="card-body text-center">

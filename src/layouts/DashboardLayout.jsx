@@ -5,10 +5,10 @@ const DashboardLayout = () => {
   return (
     <div className="drawer lg:drawer-open">
 
-      {/* Drawer Toggle for Mobile */}
+     
       <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
 
-      {/* Page Content */}
+    
       <div className="drawer-content p-6">
         <label
           htmlFor="dashboard-drawer"
@@ -20,7 +20,7 @@ const DashboardLayout = () => {
         <Outlet />
       </div>
 
-      {/* Sidebar */}
+   
       <Sidebar />
 
     </div>

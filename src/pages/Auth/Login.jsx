@@ -1,8 +1,10 @@
+
+
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import api from "../../services/apiClient"; // ✅ backend call করার জন্য
+import api from "../../services/apiClient"; 
 
 const Login = () => {
   const { loginUser, googleLogin } = useAuth();
@@ -16,6 +18,7 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
+  
   const onSubmit = (data) => {
     loginUser(data.email, data.password)
       .then(() => {
@@ -36,6 +39,7 @@ const Login = () => {
       });
   };
 
+  
   const handleGoogle = () => {
     googleLogin()
       .then((result) => {
@@ -45,9 +49,8 @@ const Login = () => {
           email: user.email,
           photo: user.photoURL,
         };
-        console.log("📤 Sending user to backend:", newUser);
 
-        // ✅ Backend এ ইউজার সেভ করো
+        
         api.post("/users", newUser)
           .then((res) => {
             console.log("✅ Backend response:", res.data);
@@ -81,7 +84,7 @@ const Login = () => {
         <h2 className="text-2xl font-bold text-center mb-4">Login</h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          {/* Email */}
+         
           <div>
             <label className="font-semibold">Email</label>
             <input
@@ -94,7 +97,7 @@ const Login = () => {
             )}
           </div>
 
-          {/* Password */}
+          
           <div>
             <label className="font-semibold">Password</label>
             <input

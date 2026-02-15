@@ -17,13 +17,13 @@ const AllContests = () => {
   const { data = {}, isLoading, error } = useQuery({
     queryKey: ["all-contests", selectedType, searchQuery, page],
     queryFn: async () => {
-      // ✅ backend এর সাথে search + type + pagination যুক্ত করা হলো
+      
       const res = await api.get("/contests", {
         params: { type: selectedType, search: searchQuery, page, limit },
       });
       return res.data;
     },
-    keepPreviousData: true, // pagination smoother হবে
+    keepPreviousData: true, 
   });
 
   const contests = data.contests || [];
@@ -46,10 +46,10 @@ const AllContests = () => {
     <div className="max-w-7xl mx-auto px-4 my-16">
       <h2 className="text-3xl font-bold mb-6">All Contests</h2>
 
-      {/* Tabs for filtering by type */}
+      
       <ContestTabs selectedType={selectedType} setSelectedType={setSelectedType} />
 
-      {/* Contest Grid */}
+      
       <div className="grid md:grid-cols-3 gap-6 mt-8">
         {contests.length > 0 ? (
           contests.map((contest) => (
@@ -60,7 +60,7 @@ const AllContests = () => {
         )}
       </div>
 
-      {/* Pagination */}
+     
       {totalPages > 1 && (
         <div className="flex justify-center mt-10 gap-2">
           <button

@@ -38,7 +38,7 @@ const Banner = () => {
             Search contests by category — design, writing, business ideas, gaming reviews, and more.
           </p>
 
-          {/* Search Bar */}
+          
           <div className="flex gap-2 justify-center">
             <input
               type="text"

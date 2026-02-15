@@ -3,7 +3,7 @@ import MainLayout from "../layouts/MainLayout";
 import DashboardLayout from "../layouts/DashboardLayout";
 import Home from "../pages/Home/Home";
 import AllContests from "../pages/AllContests/AllContests";
-import ContestDetails from "../pages/ContestsDetails/ContestDetails"; // FIXED PATH
+import ContestDetails from "../pages/ContestsDetails/ContestDetails"; 
 import Leaderboard from "../pages/Leaderboard/Leaderboard";
 import ExtraPageOne from "../pages/ExtraPageOne/ExtraPageOne";
 import ExtraPageTwo from "../pages/ExtraPageTwo/ExtraPageTwo";
@@ -15,18 +15,18 @@ import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import CreatorRoute from "./CreatorRoute";
 
-// User Dashboard
+
 import MyParticipatedContests from "../pages/Dashboard/User/MyParticipatedContests";
 import MyWinningContests from "../pages/Dashboard/User/MyWinningContests";
 import MyProfile from "../pages/Dashboard/User/MyProfile";
 
-// Creator Dashboard
+
 import AddContest from "../pages/Dashboard/Creator/AddContest";
 import MyCreatedContests from "../pages/Dashboard/Creator/MyCreatedContests";
 import EditContest from "../pages/Dashboard/Creator/EditContest";
 import Submissions from "../pages/Dashboard/Creator/Submissions";
 
-// Admin Dashboard
+
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
 import ManageContests from "../pages/Dashboard/Admin/ManageContests";
 
@@ -60,11 +60,11 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
-      // User
+     
       { path: "participated", element: <MyParticipatedContests /> },
       { path: "winning", element: <MyWinningContests /> },
       { path: "profile", element: <MyProfile /> },
-      // Creator
+      
       {
         path: "add-contest",
         element: (
@@ -97,7 +97,7 @@ const router = createBrowserRouter([
           </CreatorRoute>
         ),
       },
-      // Admin
+     
       {
         path: "manage-users",
         element: (

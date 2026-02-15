@@ -6,7 +6,7 @@ import axios from "axios";
 const Sidebar = () => {
   const { user } = useAuth();
 
-  // ✅ Fetch user role
+
   const { data: role } = useQuery({
     queryKey: ["role", user?.email],
     enabled: !!user?.email,
@@ -24,7 +24,7 @@ const Sidebar = () => {
       <ul className="menu p-4 w-72 min-h-full bg-base-200 text-base-content">
         <h2 className="text-2xl font-bold mb-6">Dashboard</h2>
 
-        {/* ✅ User Menu */}
+        
         {role === "user" && (
           <>
             <li>
@@ -39,7 +39,7 @@ const Sidebar = () => {
           </>
         )}
 
-        {/* ✅ Creator Menu */}
+      
         {role === "creator" && (
           <>
             <li>
@@ -51,7 +51,7 @@ const Sidebar = () => {
           </>
         )}
 
-        {/* ✅ Admin Menu */}
+    
         {role === "admin" && (
           <>
             <li>
@@ -65,7 +65,7 @@ const Sidebar = () => {
 
         <div className="divider"></div>
 
-        {/* ✅ Back to Home */}
+        
         <li>
           <Link to="/">Home</Link>
         </li>

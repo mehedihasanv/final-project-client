@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import api from "../../services/apiClient"; // ✅ backend call করার জন্য
+import api from "../../services/apiClient"; 
 
 const Register = () => {
   const { registerUser, updateUserProfile } = useAuth();
@@ -17,11 +17,11 @@ const Register = () => {
 
   const onSubmit = (data) => {
     registerUser(data.email, data.password)
-      .then((result) => {
-        // ✅ Firebase profile update
+      .then((result) =>{
+        
         updateUserProfile(data.name, data.photo)
           .then(() => {
-            // ✅ Backend এ ইউজার সেভ করো
+            
             const newUser = {
               name: data.name,
               email: data.email,
@@ -59,7 +59,7 @@ const Register = () => {
         <h2 className="text-2xl font-bold text-center mb-4">Create Account</h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          {/* Name */}
+         
           <div>
             <label className="font-semibold">Full Name</label>
             <input
@@ -72,7 +72,7 @@ const Register = () => {
             )}
           </div>
 
-          {/* Photo URL */}
+          
           <div>
             <label className="font-semibold">Photo URL</label>
             <input
@@ -85,7 +85,7 @@ const Register = () => {
             )}
           </div>
 
-          {/* Email */}
+        
           <div>
             <label className="font-semibold">Email</label>
             <input
@@ -98,7 +98,7 @@ const Register = () => {
             )}
           </div>
 
-          {/* Password */}
+          
           <div>
             <label className="font-semibold">Password</label>
             <input

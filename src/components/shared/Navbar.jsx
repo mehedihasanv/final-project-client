@@ -1,31 +1,24 @@
-
-
-
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import ThemeToggle from "./ThemeToggle";
 import { useEffect, useState } from "react";
 import api from "../../services/apiClient";
 
-
-
-
-
 const Navbar = () => {
   const { user, logoutUser } = useAuth();
   const [role, setRole] = useState(null);
 
-  // ✅ TODO: Fetch user role from backend
+ 
   useEffect(() => {
     if (user?.email) {
       api
-        .get(`/users/role/${user.email}`, { withCredentials: true })
+        .get(`/users/role/${user.email}`)
         .then(res => setRole(res.data.role))
         .catch(() => setRole(null));
     }
   }, [user]);
 
-  // ✅ TODO: Dynamic dashboard link based on role
+  
   const dashboardLink =
     role === "admin"
       ? "/dashboard/manage-users"

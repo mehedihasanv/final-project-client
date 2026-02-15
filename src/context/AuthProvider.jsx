@@ -1,4 +1,4 @@
-// src/context/AuthProvider.jsx
+
 import { createContext, useEffect, useState } from "react";
 import {
   getAuth,
@@ -56,12 +56,15 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+ 
+
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       try {
         setUser(currentUser);
         if (currentUser?.email) {
-          await api.post("/jwt", { email: currentUser.email });
+          await api.post( { email: currentUser.email });
         } else {
           await api.post("/logout");
         }

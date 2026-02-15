@@ -46,7 +46,7 @@ const ManageContests = () => {
     if (!confirm.isConfirmed) return;
 
     try {
-      const res = await api.delete(`/contest/${id}`,{ withCredentials: true });
+      const res = await api.delete(`/contest/${id}`);
       if (res.data.deletedCount > 0) {
         Swal.fire({ icon: "success", title: "Contest Deleted", timer: 1500, showConfirmButton: false });
         refetch();

@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import { useAuth } from "../../hooks/useAuth";
 import api from "../../services/apiClient";
-import { useForm } from "react-hook-form";   // 🔹 React Hook Form import
+import { useForm } from "react-hook-form";  
 
 const ContestDetails = () => {
   const { id } = useParams();
@@ -19,7 +19,10 @@ const ContestDetails = () => {
     queryKey: ["contest-details", id],
     queryFn: async () => {
       const res = await api.get(`/contest/${id}`);
+       console.log(res.data);
       return res.data;
+     
+      
     },
   });
 
@@ -71,8 +74,8 @@ const ContestDetails = () => {
       });
       if (res.data.success) {
   Swal.fire({ icon: "success", title: "Payment Successful", timer: 1500, showConfirmButton: false });
-  refetch();              // contest details update
-  refetchParticipated();  // participated list update
+  refetch();              
+  refetchParticipated();  
 }
 
    
@@ -81,7 +84,7 @@ const ContestDetails = () => {
     }
   };
 
-  // 🔹 React Hook Form setup
+  
  
 
   const onSubmit = async (data) => {
@@ -96,7 +99,7 @@ const ContestDetails = () => {
       if (res.data.success) {
         Swal.fire({ icon: "success", title: "Task Submitted", timer: 1500, showConfirmButton: false });
         setShowModal(false);
-        reset(); // form reset
+        reset(); 
       }
     } catch {
       Swal.fire({ icon: "error", title: "Submission Failed" });
@@ -159,7 +162,7 @@ const ContestDetails = () => {
         <dialog open className="modal">
           <div className="modal-box">
             <h3 className="font-bold text-lg mb-4">Submit Your Task</h3>
-            {/* 🔹 React Hook Form used here */}
+            
             <form onSubmit={handleSubmit(onSubmit)}>
               <textarea
                 {...register("task", { required: "Task is required" })}
