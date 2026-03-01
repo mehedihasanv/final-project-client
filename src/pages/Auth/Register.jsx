@@ -13,8 +13,8 @@ const Register = () => {
   const { registerUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
 
-  const [loading, setLoading] = useState(false); // ✅ spinner state
-  const [showPassword, setShowPassword] = useState(false); // ✅ eye toggle state
+  const [loading, setLoading] = useState(false); 
+  const [showPassword, setShowPassword] = useState(false); 
 
   const {
     register,
@@ -24,7 +24,7 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    setLoading(true); // ✅ spinner শুরু
+    setLoading(true); 
     registerUser(data.email, data.password)
       .then(() =>{
         updateUserProfile(data.name, data.photo)
@@ -51,7 +51,7 @@ const Register = () => {
               title: "Profile Update Failed",
             });
           })
-          .finally(() => setLoading(false)); // ✅ কাজ শেষে spinner বন্ধ
+          .finally(() => setLoading(false)); 
       })
       .catch(() => {
         Swal.fire({
@@ -68,7 +68,7 @@ const Register = () => {
         <h2 className="text-2xl font-bold text-center mb-4">Create Account</h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          {/* Full Name */}
+        
           <div>
             <label className="font-semibold">Full Name</label>
             <input
@@ -81,7 +81,7 @@ const Register = () => {
             )}
           </div>
 
-          {/* Photo URL */}
+          
           <div>
             <label className="font-semibold">Photo URL</label>
             <input
@@ -94,7 +94,7 @@ const Register = () => {
             )}
           </div>
 
-          {/* Email */}
+        
           <div>
             <label className="font-semibold">Email</label>
             <input
@@ -107,7 +107,7 @@ const Register = () => {
             )}
           </div>
 
-          {/* Password with Eye Toggle */}
+        
           <div>
             <label className="font-semibold">Password</label>
             <div className="relative">
@@ -137,7 +137,7 @@ const Register = () => {
             )}
           </div>
 
-          {/* Register Button with Spinner */}
+         
           <button className="btn btn-primary w-full" disabled={loading}>
             {loading ? (
               <span className="flex items-center justify-center gap-2">

@@ -18,7 +18,7 @@ const Contact = () => {
     setStatus("loading");
 
     try {
-      const res = await api.post("/contact", formData); // axios দিয়ে backend call
+      const res = await api.post("/contact", formData); 
       if (res.data.success) {
         setStatus("success");
         setFormData({ name: "", email: "", message: "" });
@@ -54,7 +54,7 @@ const Contact = () => {
           />
         </div>
 
-        {/* Email */}
+       
         <div>
           <label htmlFor="email" className="block mb-2 font-medium">
             Email
@@ -69,7 +69,7 @@ const Contact = () => {
           />
         </div>
 
-        {/* Message */}
+      
         <div>
           <label htmlFor="message" className="block mb-2 font-medium">
             Message
@@ -84,7 +84,7 @@ const Contact = () => {
           ></textarea>
         </div>
 
-        {/* Submit Button */}
+       
         <button
           type="submit"
           disabled={status === "loading"}
@@ -94,7 +94,7 @@ const Contact = () => {
         </button>
       </form>
 
-      {/* Status Messages */}
+      
       {status === "success" && (
         <p className="mt-4 text-green-600">Message sent successfully!</p>
       )}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import api from "../../services/apiClient"; // তোমার axios instance import করো
+import api from "../../services/apiClient"; 
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -8,7 +8,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await api.get("/blogs"); // backend থেকে blogs ফেচ করা
+        const res = await api.get("/blogs"); 
         setBlogs(res.data);
       } catch (error) {
         console.error("Error fetching blogs:", error);
