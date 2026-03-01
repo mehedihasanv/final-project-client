@@ -20,7 +20,7 @@ const PopularContests = () => {
     <div className="max-w-7xl mx-auto my-16 px-4">
       <h2 className="text-3xl font-bold mb-6">Popular Contests</h2>
 
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-4 gap-6">
         {contests.slice(0, 5).map((contest) => (
           <ContestCard key={contest._id} contest={contest} />
         ))}

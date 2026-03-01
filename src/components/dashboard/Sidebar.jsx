@@ -60,6 +60,9 @@ const Sidebar = () => {
             <li>
               <NavLink to="/dashboard/manage-contests">Manage Contests</NavLink>
             </li>
+            <li>
+              <NavLink to="/dashboard/blog">Create Blog</NavLink>
+            </li>
           </>
         )}
 

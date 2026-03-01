@@ -8,6 +8,17 @@ A modern, user-friendly contest management platform that allows users to create,
  ##Live Site URL
 https://roaring-bubblegum-26fe9c.netlify.app
 
+Admin Email: mehedi@gmail.com
+
+Admin pass: mehedi
+
+User Email:masud@gmail.com
+
+User Pass:masud1610
+
+Creator Email: shahin@gmail.com
+
+Creator pass: shahin
 
 
  ##Features

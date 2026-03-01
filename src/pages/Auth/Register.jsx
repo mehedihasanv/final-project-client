@@ -1,12 +1,20 @@
+
+
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { useForm } from "react-hook-form";
+import { FaRegEye } from "react-icons/fa";
+import { FaRegEyeSlash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import api from "../../services/apiClient"; 
+import { useState } from "react";
 
 const Register = () => {
   const { registerUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
+
+  const [loading, setLoading] = useState(false); // ✅ spinner state
+  const [showPassword, setShowPassword] = useState(false); // ✅ eye toggle state
 
   const {
     register,
@@ -16,12 +24,11 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    setLoading(true); // ✅ spinner শুরু
     registerUser(data.email, data.password)
-      .then((result) =>{
-        
+      .then(() =>{
         updateUserProfile(data.name, data.photo)
           .then(() => {
-            
             const newUser = {
               name: data.name,
               email: data.email,
@@ -43,13 +50,15 @@ const Register = () => {
               icon: "error",
               title: "Profile Update Failed",
             });
-          });
+          })
+          .finally(() => setLoading(false)); // ✅ কাজ শেষে spinner বন্ধ
       })
       .catch(() => {
         Swal.fire({
           icon: "error",
           title: "Registration Failed",
         });
+        setLoading(false);
       });
   };
 
@@ -59,7 +68,7 @@ const Register = () => {
         <h2 className="text-2xl font-bold text-center mb-4">Create Account</h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-         
+          {/* Full Name */}
           <div>
             <label className="font-semibold">Full Name</label>
             <input
@@ -72,7 +81,7 @@ const Register = () => {
             )}
           </div>
 
-          
+          {/* Photo URL */}
           <div>
             <label className="font-semibold">Photo URL</label>
             <input
@@ -85,7 +94,7 @@ const Register = () => {
             )}
           </div>
 
-        
+          {/* Email */}
           <div>
             <label className="font-semibold">Email</label>
             <input
@@ -98,17 +107,26 @@ const Register = () => {
             )}
           </div>
 
-          
+          {/* Password with Eye Toggle */}
           <div>
             <label className="font-semibold">Password</label>
-            <input
-              type="password"
-              className="input input-bordered w-full"
-              {...register("password", {
-                required: true,
-                minLength: 6,
-              })}
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                className="input input-bordered w-full pr-10"
+                {...register("password", {
+                  required: true,
+                  minLength: 6,
+                })}
+              />
+              <button
+                type="button"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FaRegEyeSlash/>: <FaRegEye/>}
+              </button>
+            </div>
             {errors.password?.type === "required" && (
               <p className="text-red-500 text-sm">Password is required</p>
             )}
@@ -119,7 +137,17 @@ const Register = () => {
             )}
           </div>
 
-          <button className="btn btn-primary w-full">Register</button>
+          {/* Register Button with Spinner */}
+          <button className="btn btn-primary w-full" disabled={loading}>
+            {loading ? (
+              <span className="flex items-center justify-center gap-2">
+                <span className="loading loading-spinner"></span>
+                Creating Account...
+              </span>
+            ) : (
+              "Register"
+            )}
+          </button>
         </form>
 
         <p className="text-center mt-3">

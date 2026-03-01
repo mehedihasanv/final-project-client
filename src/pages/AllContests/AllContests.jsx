@@ -50,7 +50,7 @@ const AllContests = () => {
       <ContestTabs selectedType={selectedType} setSelectedType={setSelectedType} />
 
       
-      <div className="grid md:grid-cols-3 gap-6 mt-8">
+      <div className="grid md:grid-cols-4 gap-6 mt-8">
         {contests.length > 0 ? (
           contests.map((contest) => (
             <ContestCard key={contest._id} contest={contest} />

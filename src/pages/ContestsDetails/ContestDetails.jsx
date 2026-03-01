@@ -1,4 +1,5 @@
 
+
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
@@ -13,30 +14,24 @@ const ContestDetails = () => {
 
   const [timeLeft, setTimeLeft] = useState("");
   const [showModal, setShowModal] = useState(false);
-   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
   const { data: contest = {}, isLoading, error, refetch } = useQuery({
     queryKey: ["contest-details", id],
     queryFn: async () => {
       const res = await api.get(`/contest/${id}`);
-       console.log(res.data);
       return res.data;
-     
-      
     },
   });
 
   const { data: participated = [], error: partError, refetch: refetchParticipated } = useQuery({
-  queryKey: ["participated", user?.email],
-  enabled: !!user?.email,
-  queryFn: async () => {
-    const res = await api.get(`/participated/${user.email}`);
-    return res.data;
-  },
-});
-
-
-
+    queryKey: ["participated", user?.email],
+    enabled: !!user?.email,
+    queryFn: async () => {
+      const res = await api.get(`/participated/${user.email}`);
+      return res.data;
+    },
+  });
 
   const isRegistered = participated.some((p) => p._id === id || p._id === contest._id);
 
@@ -65,6 +60,10 @@ const ContestDetails = () => {
   const isEnded = timeLeft === "Contest Ended";
 
   const handleRegister = async () => {
+    if (!user) {
+      Swal.fire({ icon: "warning", title: "Please login to register" });
+      return;
+    }
     if (isEnded) return;
     try {
       const res = await api.post("/payment", {
@@ -73,21 +72,20 @@ const ContestDetails = () => {
         price: contest.price,
       });
       if (res.data.success) {
-  Swal.fire({ icon: "success", title: "Payment Successful", timer: 1500, showConfirmButton: false });
-  refetch();              
-  refetchParticipated();  
-}
-
-   
+        Swal.fire({ icon: "success", title: "Payment Successful", timer: 1500, showConfirmButton: false });
+        refetch();              
+        refetchParticipated();  
+      }
     } catch {
       Swal.fire({ icon: "error", title: "Payment Failed" });
     }
   };
 
-  
- 
-
   const onSubmit = async (data) => {
+    if (!user) {
+      Swal.fire({ icon: "warning", title: "Please login to submit task" });
+      return;
+    }
     try {
       const res = await api.post("/submission", {
         contestId: contest._id,
@@ -151,7 +149,7 @@ const ContestDetails = () => {
           {isEnded ? "Contest Ended" : `Register / Pay $${contest.price}`}
         </button>
 
-        {isRegistered && !isEnded && (
+        {user && isRegistered && !isEnded && (
           <button onClick={() => setShowModal(true)} className="btn btn-secondary">
             Submit Task
           </button>

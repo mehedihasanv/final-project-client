@@ -3,7 +3,7 @@ import MainLayout from "../layouts/MainLayout";
 import DashboardLayout from "../layouts/DashboardLayout";
 import Home from "../pages/Home/Home";
 import AllContests from "../pages/AllContests/AllContests";
-import ContestDetails from "../pages/ContestsDetails/ContestDetails"; 
+import ContestDetails from "../pages/ContestsDetails/ContestDetails";
 import Leaderboard from "../pages/Leaderboard/Leaderboard";
 import ExtraPageOne from "../pages/ExtraPageOne/ExtraPageOne";
 import ExtraPageTwo from "../pages/ExtraPageTwo/ExtraPageTwo";
@@ -15,21 +15,21 @@ import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import CreatorRoute from "./CreatorRoute";
 
-
 import MyParticipatedContests from "../pages/Dashboard/User/MyParticipatedContests";
 import MyWinningContests from "../pages/Dashboard/User/MyWinningContests";
 import MyProfile from "../pages/Dashboard/User/MyProfile";
-
 
 import AddContest from "../pages/Dashboard/Creator/AddContest";
 import MyCreatedContests from "../pages/Dashboard/Creator/MyCreatedContests";
 import EditContest from "../pages/Dashboard/Creator/EditContest";
 import Submissions from "../pages/Dashboard/Creator/Submissions";
 
-
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
 import ManageContests from "../pages/Dashboard/Admin/ManageContests";
-
+import About from "../pages/About/About";
+import Blog from "../pages/Blog/Blog";
+import Contact from "../pages/Contact/Contact";
+import BlogForm from "../pages/Dashboard/Admin/BlogForm";
 
 const router = createBrowserRouter([
   {
@@ -40,8 +40,22 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/all-contests", element: <AllContests /> },
       { path: "/leaderboard", element: <Leaderboard /> },
-      { path: "/extra-1", element: <ExtraPageOne/> },
+      { path: "/extra-1", 
+         element: (
+         <PrivateRoute>
+          <ExtraPageOne />
+          </PrivateRoute>) },
       { path: "/extra-2", element: <ExtraPageTwo /> },
+      { path: "/about", element: <About /> },
+      { path: "/blog", element: <Blog /> },
+      {
+        path: "/contact",
+        element: (
+          <PrivateRoute>
+            <Contact />
+          </PrivateRoute>
+        ),
+      },
       {
         path: "/contest/:id",
         element: (
@@ -60,11 +74,10 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
-     
       { path: "participated", element: <MyParticipatedContests /> },
       { path: "winning", element: <MyWinningContests /> },
       { path: "profile", element: <MyProfile /> },
-      
+
       {
         path: "add-contest",
         element: (
@@ -97,7 +110,7 @@ const router = createBrowserRouter([
           </CreatorRoute>
         ),
       },
-     
+
       {
         path: "manage-users",
         element: (
@@ -111,6 +124,14 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <ManageContests />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "blog",
+        element: (
+          <AdminRoute>
+            <BlogForm />
           </AdminRoute>
         ),
       },
